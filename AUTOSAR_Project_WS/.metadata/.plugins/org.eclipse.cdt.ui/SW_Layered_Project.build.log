@@ -1,0 +1,30 @@
+14:18:02 **** Incremental Build of configuration Debug for project SW_Layered_Project ****
+make all 
+Building file: ../App.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"App.d" -MT"App.o" -c -o "App.o" "../App.c"
+In file included from ../Micro_Config.h:22,
+                 from ../Port.h:16,
+                 from ../App.c:16:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../App.c
+ 
+Building file: ../Os.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Os.d" -MT"Os.o" -c -o "Os.o" "../Os.c"
+In file included from ../Micro_Config.h:22,
+                 from ../Gpt.h:15,
+                 from ../Os.c:16:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Os.c
+ 
+Building target: SW_Layered_Project.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SW_Layered_Project.map -mmcu=atmega16 -o "SW_Layered_Project.elf"  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.o  ./App.o ./Button.o ./Det.o ./Dio.o ./Dio_PBcfg.o ./Gpt.o ./Led.o ./Os.o ./Port.o ./Project.o   
+./App.o: In function `Init_Task':
+../App.c:26: undefined reference to `Port_Configuration'
+../App.c:26: undefined reference to `Port_Configuration'
+make: *** [SW_Layered_Project.elf] Error 1
+
+14:18:03 Build Failed. 3 errors, 2 warnings. (took 675ms)
+

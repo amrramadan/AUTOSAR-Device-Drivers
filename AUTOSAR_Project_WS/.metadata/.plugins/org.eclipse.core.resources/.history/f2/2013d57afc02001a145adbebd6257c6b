@@ -1,0 +1,57 @@
+ /******************************************************************************
+ *
+ * Module: Port
+ *
+ * File Name: Port.c
+ *
+ * Description: Source file for Port Module.
+ *
+ * Author: Amr Ramadan
+ ******************************************************************************/
+
+#include "Port.h"
+#include "Dio_Regs.h"
+
+STATIC Port_ConfigPins * PortConf = NULL_PTR;
+STATIC uint8 Port_Status = PORT_NOT_INITIALIZED;
+
+void Port_Init(const Port_ConfigType* ConfigPtr ){
+	PortConf = ConfigPtr ->Pins;
+	Port_Status = PORT_INITIALIZED;
+
+	uint8 * DDR_PTR;
+	uint8 * PORT_PTR;
+	uint8 Pin_Index;
+	for(Pin_Index =0; Pin_Index < PORT_CONFIGURED_PINS; Pin_Index++)
+	{
+		switch (PortConf[Pin_Index].port)
+		{
+		case 0: PORT_PTR = &PORTA_REG;
+				break;
+		case 1: PORT_PTR = &PORTB_REG;
+				break;
+		case 2: PORT_PTR = &PORTC_REG;
+				break;
+		case 3: PORT_PTR = &PORTD_REG;
+				break;
+		}
+		switch (PortConf[Pin_Index].pin_num)
+		{
+		case 0: DDR_PTR = &DDRA_REG;
+				break;
+		case 1: DDR_PTR = &DDRB_REG;
+				break;
+		case 2: DDR_PTR = &DDRC_REG;
+				break;
+		case 3: DDR_PTR = &DDRD_REG;
+				break;
+		}
+		if(PortConf[Pin_Index].level == PORT_PIN_LEVEL_HIGH)
+		{
+			SET_BIT(*PORT_PTR,PortConf[Pin_Index].pin_num);
+		}
+		else
+			CLEAR_BIT(*PORT_PTR,PortConf[Pin_Index].pin_num);
+	}
+
+}

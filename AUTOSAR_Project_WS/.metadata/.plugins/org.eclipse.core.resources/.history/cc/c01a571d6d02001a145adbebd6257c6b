@@ -1,0 +1,20 @@
+/*
+ * Port_PBcfg.h
+ *
+ *  Created on: Nov 8, 2019
+ *      Author: amrra
+ */
+
+#ifndef PORT_PBCFG_H_
+#define PORT_PBCFG_H_
+/*Module Version*/
+#define PORT_PBCFG_SW_MAJOR_VERSION		(1U)
+#define PORT_PBCFG_SW_MINOR_VERSION		(0U)
+#define PORT_PBCFG_SW_PATCH_VERSION		(0U)
+
+/*AUTOSAR Version*/
+#define PORT_PBCFG_AR_RELEASE_MAJOR_VERSION		(3U)
+#define PORT_PBCFG_AR_RELEASE_MINOR_VERSION		(0U)
+#define PORT_PBCFG_AR_RELEASE_PATCH_VERSION		(4U)
+
+#endif /* PORT_PBCFG_H_ */

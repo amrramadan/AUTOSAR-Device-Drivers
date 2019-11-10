@@ -1,0 +1,62 @@
+ /******************************************************************************
+ *
+ * Module: Port
+ *
+ * File Name: Port.h
+ *
+ * Description: Header file for Port Module.
+ *
+ * Author: Mohamed Tarek
+ ******************************************************************************/
+
+#ifndef PORT_H
+#define PORT_H
+
+#include "Common_Macros.h"
+#include "Micro_Config.h"
+#include "Std_Types.h"
+
+#define DIO_VENDOR_ID    (1000U)
+
+/* Dio Module Id */
+#define DIO_MODULE_ID    (120U)
+
+/* Dio Instance Id */
+#define DIO_INSTANCE_ID  (0U)
+
+/*
+ * Module Version 1.0.0
+ */
+#define PORT_SW_MAJOR_VERSION           (1U)
+#define PORT_SW_MINOR_VERSION           (0U)
+#define PORT_SW_PATCH_VERSION           (0U)
+
+/*
+ * AUTOSAR Version 4.0.3
+ */
+#define PORT_AR_RELEASE_MAJOR_VERSION   (4U)
+#define PORT_AR_RELEASE_MINOR_VERSION   (0U)
+#define PORT_AR_RELEASE_PATCH_VERSION   (3U)
+
+
+#define INPUT     (0U)
+#define OUTPUT    (1U)
+
+/****************************************************************************************************************/
+/* Description: Structure to describe each individual PIN contains:
+ *	1. the PORT Which the pin belongs to. 0, 1, 2 or 3
+ *	2. the number of the pin in the PORT.
+ *  3. the direction of pin --> INPUT or OUTPUT
+ */
+typedef struct 
+{
+	uint8 port; 
+	uint8 pin_num; 
+	uint8 direction;
+}Port_Config;
+/***************************************************************************************************************/
+
+/* configure the PIN to input or output pin */
+void Port_SetDirection(const Port_Config *s_Config_Msg );
+
+#endif /* PORT_H */

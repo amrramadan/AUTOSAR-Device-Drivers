@@ -1,0 +1,127 @@
+ /******************************************************************************
+ *
+ * Module: Port
+ *
+ * File Name: Port.h
+ *
+ * Description: Header file for Port Module.
+ *
+ * Author: Amr Ramadan
+ ******************************************************************************/
+
+#ifndef PORT_H
+#define PORT_H
+
+#include "Common_Macros.h"
+#include "Micro_Config.h"
+#include "Std_Types.h"
+#include "PORT_Cfg.h"
+
+#define PORT_VENDOR_ID    (1000U)
+
+/* Dio Module Id */
+#define PORT_MODULE_ID    (120U)
+
+/* Dio Instance Id */
+#define PORT_INSTANCE_ID  (0U)
+
+/*
+ * Module Version 1.0.0
+ */
+#define PORT_SW_MAJOR_VERSION           (1U)
+#define PORT_SW_MINOR_VERSION           (0U)
+#define PORT_SW_PATCH_VERSION           (0U)
+
+/*
+ * AUTOSAR Version 4.0.3
+ */
+#define PORT_AR_RELEASE_MAJOR_VERSION   (4U)
+#define PORT_AR_RELEASE_MINOR_VERSION   (0U)
+#define PORT_AR_RELEASE_PATCH_VERSION   (3U)
+
+
+#if ((STD_TYPES_AR_RELEASE_MAJOR_VERSION != PORT_AR_RELEASE_MAJOR_VERSION)\
+ ||  (STD_TYPES_AR_RELEASE_MINOR_VERSION != PORT_AR_RELEASE_MINOR_VERSION)\
+ ||  (STD_TYPES_AR_RELEASE_PATCH_VERSION != PORT_AR_RELEASE_PATCH_VERSION))
+  #error "The AR version of Std_Types.h does not match the expected version"
+#endif
+
+
+
+#if ((PORT_CFG_AR_RELEASE_MAJOR_VERSION != PORT_AR_RELEASE_MAJOR_VERSION)\
+ ||  (PORT_CFG_AR_RELEASE_MINOR_VERSION != PORT_AR_RELEASE_MINOR_VERSION)\
+ ||  (PORT_CFG_AR_RELEASE_PATCH_VERSION != PORT_AR_RELEASE_PATCH_VERSION))
+  #error "The AR version of Port_Cfg.h does not match the expected version"
+#endif
+
+
+#if ((PORT_CFG_SW_MAJOR_VERSION != PORT_SW_MAJOR_VERSION)\
+ ||  (PORT_CFG_SW_MINOR_VERSION != PORT_SW_MINOR_VERSION)\
+ ||  (PORT_CFG_SW_PATCH_VERSION != PORT_SW_PATCH_VERSION))
+  #error "The SW version of Port_Cfg.h does not match the expected version"
+#endif
+#define INPUT	  					 (0U)
+#define OUTPUT   					 (1U)
+
+#define PORT_E_PARAM_PIN				(uint8)0x0A
+#define PORT_E_PARAM_CONFIG             (uint8)0x0C
+#define PORT_E_PARAM_INVALID_MODE	    (uint8)0x0D
+#define PORT_E_MODE_UNCHANGEABLE	    (uint8)0x0E
+#define PORT_E_PARAM_POINTER            (uint8)0x10
+#define PORT_E_UNINIT                   (uint8)0xF0
+
+
+#define PORT_INIT_SID 					(uint8)0x00
+#define	Port_SetPinDirection_SID		(uint8)0x01
+#define	Port_RefreshPortDirection_SID	(uint8)0x02
+#define	Port_GetVersionInfo_SID			(uint8)0x03
+#define	Port_SetPinMode_SID				(uint8)0x04
+
+#define PORTA 							(uint8)0
+#define PORTB 							(uint8)1
+#define PORTC 							(uint8)2
+#define PORTD 							(uint8)3
+#define PIN0 							(Port_PinType)0
+#define PIN1 							(Port_PinType)1
+#define PIN2 							(Port_PinType)2
+#define PIN3 							(Port_PinType)3
+#define PIN4 							(Port_PinType)4
+#define PIN5 							(Port_PinType)5
+#define PIN6 							(Port_PinType)6
+#define PIN7 							(Port_PinType)7
+
+typedef uint8 Port_PinType;
+
+typedef enum {
+	PORT_PIN_LEVEL_HIGH	= 	STD_HIGH,
+	PORT_PIN_LEVEL_LOW	=	STD_LOW
+}PortPinLevelValue;
+
+typedef enum {
+	PORT_PIN_IN	 = 	STD_LOW,
+	PORT_PIN_OUT =	STD_HIGH
+}Port_PinDirectionType;
+
+
+typedef struct 
+{
+	Port_PinType port;
+	Port_PinType pin_num;
+	Port_PinDirectionType direction;
+}Port_ConfigPins;
+
+typedef struct
+{
+	Port_ConfigPins Pins[PORT_CONFIGURED_PINS];
+}Port_ConfigType;
+
+
+void Port_Init(const Port_ConfigType* ConfigPtr );
+void Port_SetPinDirection (Port_PinType Pin,Port_PinDirectionType Direction );
+void Port_RefreshPortDirection( void );
+void Port_GetVersionInfo( Std_VersionInfoType* versioninfo );
+
+
+extern const Port_ConfigType Port_Configuration;
+
+#endif /* PORT_H */

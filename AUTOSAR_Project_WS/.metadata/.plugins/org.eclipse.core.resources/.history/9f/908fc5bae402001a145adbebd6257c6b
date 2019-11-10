@@ -1,0 +1,65 @@
+/*
+ * Port_Cfg.h
+ *
+ *  Created on: Nov 8, 2019
+ *      Author: amrra
+ */
+
+#ifndef PORT_CFG_H_
+#define PORT_CFG_H_
+
+#define PORT_CFG_SW_MAJOR_VERSION              	(1U)
+#define PORT_CFG_SW_MINOR_VERSION              	(0U)
+#define PORT_CFG_SW_PATCH_VERSION              	(0U)
+
+
+#define PORT_CFG_AR_RELEASE_MAJOR_VERSION      	(4U)
+#define PORT_CFG_AR_RELEASE_MINOR_VERSION      	(0U)
+#define PORT_CFG_AR_RELEASE_PATCH_VERSION     	(3U)
+
+#define PORT_DEV_ERROR_DETECT					(STD_ON)
+#define PORT_SET_PIN_DIRECTION_API				(STD_ON)
+#define	PORT_SET_PIN_MODE_API					(STD_OFF)
+#define	PORT_VERSION_INFO_API					(STD_ON)
+#define	PORT_PIN_DIRECTION_CHANGEABLE			(STD_OFF)
+
+#define PORT_CONFIGURED_PINS					(32U)
+//#define PORT_PIN_DIRECTION						(STD_ON)
+
+#define PIN0_DIRECTION							(PORT_PIN_IN)
+#define PIN1_DIRECTION							(PORT_PIN_IN)
+#define PIN2_DIRECTION							(PORT_PIN_IN)
+#define PIN3_DIRECTION							(PORT_PIN_IN)
+#define PIN4_DIRECTION							(PORT_PIN_IN)
+#define PIN5_DIRECTION							(PORT_PIN_IN)
+#define PIN6_DIRECTION							(PORT_PIN_IN)
+#define PIN7_DIRECTION							(PORT_PIN_IN)
+#define PIN8_DIRECTION							(PORT_PIN_IN)
+#define PIN9_DIRECTION							(PORT_PIN_IN)
+#define PIN10_DIRECTION							(PORT_PIN_IN)
+#define PIN11_DIRECTION							(PORT_PIN_IN)
+#define PIN12_DIRECTION							(PORT_PIN_IN)
+#define PIN13_DIRECTION							(PORT_PIN_IN)
+#define PIN14_DIRECTION							(PORT_PIN_IN)
+#define PIN15_DIRECTION							(PORT_PIN_IN)
+#define PIN16_DIRECTION							(PORT_PIN_IN)
+#define PIN17_DIRECTION							(PORT_PIN_IN)
+#define PIN18_DIRECTION							(PORT_PIN_IN)
+#define PIN19_DIRECTION							(PORT_PIN_IN)
+#define PIN20_DIRECTION							(PORT_PIN_IN)
+#define PIN21_DIRECTION							(PORT_PIN_IN)
+#define PIN22_DIRECTION							(PORT_PIN_IN)
+#define PIN23_DIRECTION							(PORT_PIN_IN)
+#define PIN24_DIRECTION							(PORT_PIN_IN)
+#define PIN25_DIRECTION							(PORT_PIN_IN)
+#define PIN26_DIRECTION							(PORT_PIN_IN)
+#define PIN27_DIRECTION							(PORT_PIN_OUT)
+#define PIN28_DIRECTION							(PORT_PIN_IN)
+#define PIN29_DIRECTION							(PORT_PIN_IN)
+#define PIN30_DIRECTION							(PORT_PIN_IN)
+#define PIN31_DIRECTION							(PORT_PIN_IN)
+
+
+
+
+#endif /* PORT_CFG_H_ */

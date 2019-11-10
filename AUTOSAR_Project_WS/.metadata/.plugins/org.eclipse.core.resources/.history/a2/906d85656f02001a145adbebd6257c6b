@@ -1,0 +1,31 @@
+/*
+ * Port_Cfg.h
+ *
+ *  Created on: Nov 8, 2019
+ *      Author: amrra
+ */
+
+#ifndef PORT_CFG_H_
+#define PORT_CFG_H_
+
+#define PORT_CFG_SW_MAJOR_VERSION              	(1U)
+#define PORT_CFG_SW_MINOR_VERSION              	(0U)
+#define PORT_CFG_SW_PATCH_VERSION              	(0U)
+
+
+#define PORT_CFG_AR_RELEASE_MAJOR_VERSION      	(4U)
+#define PORT_CFG_AR_RELEASE_MINOR_VERSION      	(0U)
+#define PORT_CFG_AR_RELEASE_PATCH_VERSION     	(3U)
+
+#define PORT_DEV_ERROR_DETECT					(STD_ON)
+#define PORT_SET_PIN_DIRECTION_API				(STD_ON)
+#define	PORT_SET_PIN_MODE_API					(STD_OFF)
+#define	PORT_VERSION_INFO_API					(STD_ON)
+#define	PORT_PIN_DIRECTION_CHANGEABLE			(STD_OFF)
+typedef enum {
+	PORT_PIN_IN	 = 	0,
+	PORT_PIN_OUT =	1,
+}PORT_PIN_DIRECTION;
+
+
+#endif /* PORT_CFG_H_ */
